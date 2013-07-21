@@ -1,0 +1,26 @@
+﻿@model Stub.Models.MainModel
+
+@{
+    ViewBag.Title = "AddReview";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddReview</h2>
+<ul>
+    
+    @using (Html.BeginForm())
+    {
+        @Html.DropDownListFor(x => x.SelectedType,Model.SubjectTypes.Select(y => new SelectListItem(){Text = y,Value = y}),"What did you review?");
+        
+        <div>
+            <span>What are you reviewing?</span>
+            @Html.TextBoxFor(x => x.Subject)
+        </div>
+        <div>
+            <span>Two word review</span>
+            @Html.TextBoxFor(x=>x.TwoWordReview)
+        </div>
+        <input type="submit">
+    }
+
+</ul>
